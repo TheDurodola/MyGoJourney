@@ -25,6 +25,10 @@ func main(){
 
 	circle.area()
 
+	sqr := Square{side: 5}
+
+	fmt.Printf("square area: %v\n", sqr.area())
+
 }
 
 
@@ -59,4 +63,19 @@ type Polygon struct{
 type Omo struct {
 	circle Circle
 	triangle Triangle
+}
+
+
+// interface
+type Shape interface {
+	area() float64
+}
+
+type Square struct {
+	Shape
+	side int8
+}
+
+func (s Square) area() float64 {
+	return math.Pow(float64(s.side), 2)
 }
